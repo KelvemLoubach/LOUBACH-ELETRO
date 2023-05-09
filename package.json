@@ -25,7 +25,7 @@
   "scripts": {
     "start-dev": "tsx watch src/server.ts && tsc",
     "build":"tsc",
-    "start":"node Dist/server.js"
+    "start":"node Dist/src/server.js"
   },
   "engines": {
     "node": "18"
