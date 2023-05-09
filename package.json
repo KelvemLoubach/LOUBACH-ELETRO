@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start-dev": "tsx watch src/server.ts && tsc",
-    "build":"tsup src",
+    "build":"tsup src/",
     "start":"node Dist/server.js"
   },
   "engines": {
