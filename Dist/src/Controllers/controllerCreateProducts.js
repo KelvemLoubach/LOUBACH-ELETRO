@@ -38,21 +38,46 @@ const config = {
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     }
 };
-const client = new client_s3_1.S3Client(config);
+const clientS3 = new client_s3_1.S3Client(config);
 const createProducts = async (req, res) => {
-    const { category, oldPrice, price, inStock, guarantee, description, name } = req.body;
-    const photos = req.files;
-    const newProduct = await services.createProductService.createProduct({
-        oldPrice: parseInt(oldPrice),
-        price: parseInt(price),
-        inStock,
-        guarantee,
-        description,
-        name,
-        category
-    });
-    console.log(newProduct);
-    console.log(photos);
-    return res.status(201).json({ newProduct });
+    try {
+        const { oldPrice, name, description, price, inStock, category, guarantee } = req.body;
+        const photos = req.files;
+        let image = [];
+        for (let i = 0; i < photos.image.length; i++) {
+            const namePhoto = photos.image[i].fieldname + Math.floor(Math.random() * 10000000);
+            const bucket = {
+                Bucket: 'photosnodeapi',
+                Key: namePhoto,
+                Body: photos.image[i].buffer,
+                ACL: 'public-read',
+                ContentType: photos.image[i].originalname
+            };
+            image[i] = `https://photosnodeapi.s3.sa-east-1.amazonaws.com/${namePhoto}`;
+            const data = await clientS3.send(new client_s3_1.PutObjectCommand(bucket));
+        }
+        ;
+        const image1 = image[0];
+        const image2 = image[1];
+        const image3 = image[2];
+        const image4 = image[3];
+        const newProduct = await services.createProductService.createProduct({
+            oldPrice,
+            price: parseInt(price),
+            inStock,
+            guarantee,
+            description,
+            name,
+            category,
+            image1,
+            image2,
+            image4,
+            image3,
+        });
+        return res.status(201).json({ OK: 'Tudo correto por aqui!' });
+    }
+    catch (err) {
+        return res.status(401).json({ Errop: err });
+    }
 };
 exports.createProducts = createProducts;

@@ -23,5 +23,5 @@ model Products {
   image2 String?
   image3 String?
   image4 String?
-  oldPrice Int?
+  oldPrice String?
 }

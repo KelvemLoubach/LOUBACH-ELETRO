@@ -22,19 +22,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const multer_1 = __importDefault(require("multer"));
+const multer_1 = require("../libs/multer");
 const controllerHome = __importStar(require("../Controllers/controllerHome"));
+const controllerGet = __importStar(require("../Controllers/controllerGetProduct"));
 const controllerCreateProduct = __importStar(require("../Controllers/controllerCreateProducts"));
 const router = (0, express_1.Router)();
-const multer = (0, multer_1.default)({
-    dest: 'uploads/img',
-    limits: { fileSize: 5 * 1024 * 1024 } // 5MB
-});
+router.post('/createproducts', multer_1.upload.fields([{ name: 'oldPrice' }, { name: 'category' }, { name: 'name' }, { name: 'price' }, { name: 'description' }, { name: 'inStock' }, { name: 'guarantee' }, { name: 'image' }]), controllerCreateProduct.createProducts);
 router.get('/', controllerHome.home);
-router.post('/createproducts', multer.fields([{ name: 'oldPrice' }, { name: 'category' }, { name: 'name' }, { name: 'price' }, { name: 'description' }, { name: 'inStock' }, { name: 'guarantee' }, { name: 'image' }]), controllerCreateProduct.createProducts);
+router.get('/getproductsingle/:id', controllerGet.getProductId);
 exports.default = router;

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import * as services from '../services/servicesCreateProducts';
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -38,7 +38,9 @@ const bucket = {
 image[i] = `https://photosnodeapi.s3.sa-east-1.amazonaws.com/${namePhoto}`;
 
     const data = await clientS3.send(new PutObjectCommand(bucket));
-    console.log(image[i]);
+
+  
+
 };
 const image1 = image[0];
 const image2 = image[1];
@@ -46,7 +48,7 @@ const image3 = image[2];
 const image4 = image[3];
 
     const newProduct = await services.createProductService.createProduct({
-        oldPrice: parseInt(oldPrice),
+        oldPrice,
         price: parseInt(price),
         inStock,
         guarantee,
@@ -60,12 +62,11 @@ const image4 = image[3];
 
     });
 
-    
+
     return res.status(201).json({OK:'Tudo correto por aqui!'});
 
-
     }catch(err){
-        console.log(err)
+       return res.status(401).json({Errop:err})
 }
 
 }

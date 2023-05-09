@@ -10,7 +10,7 @@ interface createProductsInterface  {
     image2?: string | null
     image3?: string | null
     image4?: string | null
-    oldPrice?: number | null
+    oldPrice?: string | null
 };
 
 export default createProductsInterface;
