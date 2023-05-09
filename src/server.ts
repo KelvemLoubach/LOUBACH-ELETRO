@@ -17,6 +17,6 @@ app.use(express.urlencoded({ extended: true}))
 
 app.use(mainRouters);
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT ? parseInt(process.env.PORT) : 1655);
 
 console.log(`Rodando na porta ${process.env.PORT}`);   
