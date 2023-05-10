@@ -65,7 +65,7 @@ export const createProducts = async (req: Request, res: Response) => {
 
             });
 
-            return res.status(201).json({ OK: 'Tudo correto por aqui!' });
+            return res.status(201).json({ Certo: 'Tudo correto por aqui!' });
 
         } else {
             return res.status(404).json({ Erro: 'Preencha todos os campos do cadastro!' })
