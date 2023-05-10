@@ -16,7 +16,7 @@ export const getProductId = async (req: Request, res: Response) => {
         return res.status(200).json({Erro:'Não existe nenhum produto para ser exibido!'})
         
     } catch (err) {
-        return res.status(404).json(err)
+        return res.status(404).json({Erro:err})
     }
 
 }

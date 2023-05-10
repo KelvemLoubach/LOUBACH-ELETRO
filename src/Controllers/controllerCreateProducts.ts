@@ -17,57 +17,63 @@ const clientS3 = new S3Client(config);
 
 export const createProducts = async (req: Request, res: Response) => {
 
-    try{
+    try {
 
-const { oldPrice, name, description, price, inStock, category, guarantee} = req.body;
-const photos = req.files as {image:Express.Multer.File[]};
-let image = [];
+        const { oldPrice, name, description, price, inStock, category, guarantee } = req.body;
 
-for(let i = 0; i < photos.image.length ; i++){
+        if (oldPrice && name && description && price && inStock && category && guarantee) {
 
-    const namePhoto = photos.image[i].fieldname+Math.floor(Math.random() * 10000000);
+            const photos = req.files as { image: Express.Multer.File[] };
+            let image = [];
 
-const bucket = {
-    Bucket: 'photosnodeapi',
-    Key: namePhoto,
-    Body: photos.image[i].buffer,
-    ACL: 'public-read',
-    ContentType: photos.image[i].originalname
-}
+            for (let i = 0; i < photos.image.length; i++) {
 
-image[i] = `https://photosnodeapi.s3.sa-east-1.amazonaws.com/${namePhoto}`;
+                const namePhoto = photos.image[i].fieldname + Math.floor(Math.random() * 10000000);
 
-    const data = await clientS3.send(new PutObjectCommand(bucket));
+                const bucket = {
+                    Bucket: 'photosnodeapi',
+                    Key: namePhoto,
+                    Body: photos.image[i].buffer,
+                    ACL: 'public-read',
+                    ContentType: photos.image[i].originalname
+                }
 
-  
+                image[i] = `https://photosnodeapi.s3.sa-east-1.amazonaws.com/${namePhoto}`;
 
-};
-const image1 = image[0];
-const image2 = image[1];
-const image3 = image[2];
-const image4 = image[3];
-
-    const newProduct = await services.createProductService.createProduct({
-        oldPrice,
-        price: parseInt(price),
-        inStock,
-        guarantee,
-        description,
-        name,
-        category,
-        image1,
-        image2,
-        image4,
-        image3,
-
-    });
+                const data = await clientS3.send(new PutObjectCommand(bucket));
 
 
-    return res.status(201).json({OK:'Tudo correto por aqui!'});
 
-    }catch(err){
-       return res.status(401).json({Errop:err})
-}
+            };
+            const image1 = image[0];
+            const image2 = image[1];
+            const image3 = image[2];
+            const image4 = image[3];
+
+            const newProduct = await services.createProductService.createProduct({
+                oldPrice,
+                price: parseInt(price),
+                inStock,
+                guarantee,
+                description,
+                name,
+                category,
+                image1,
+                image2,
+                image4,
+                image3,
+
+            });
+
+            return res.status(201).json({ OK: 'Tudo correto por aqui!' });
+
+        } else {
+            return res.status(404).json({ Erro: 'Preencha todos os campos do cadastro!' })
+        }
+
+    } catch (err) {
+        return res.status(401).json({ Erro: err })
+    }
 
 }
 

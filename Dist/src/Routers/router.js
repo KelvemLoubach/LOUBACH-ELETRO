@@ -30,7 +30,7 @@ const controllerGet = __importStar(require("../Controllers/controllerGetProduct"
 const controllerCreateProduct = __importStar(require("../Controllers/controllerCreateProducts"));
 const router = (0, express_1.Router)();
 router.post('/createproducts', multer_1.upload.fields([{ name: 'oldPrice' }, { name: 'category' }, { name: 'name' }, { name: 'price' }, { name: 'description' }, { name: 'inStock' }, { name: 'guarantee' }, { name: 'image' }]), controllerCreateProduct.createProducts);
-router.post('/teste', controllerHome.teste);
+router.get('/teste', controllerHome.teste);
 router.get('/', controllerHome.home);
 router.get('/getproductsingle/:id', controllerGet.getProductId);
 exports.default = router;

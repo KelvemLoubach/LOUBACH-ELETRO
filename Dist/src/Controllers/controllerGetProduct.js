@@ -36,7 +36,7 @@ const getProductId = async (req, res) => {
         return res.status(200).json({ Erro: 'Não existe nenhum produto para ser exibido!' });
     }
     catch (err) {
-        return res.status(404).json(err);
+        return res.status(404).json({ Erro: err });
     }
 };
 exports.getProductId = getProductId;

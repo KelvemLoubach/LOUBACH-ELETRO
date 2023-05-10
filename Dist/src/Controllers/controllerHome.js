@@ -35,7 +35,7 @@ const home = async (req, res) => {
         return res.status(200).json({ productsAll });
     }
     catch (err) {
-        return res.status(404).json(err);
+        return res.status(404).json({ Erro: err });
     }
 };
 exports.home = home;

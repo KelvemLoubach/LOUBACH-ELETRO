@@ -13,7 +13,7 @@ export const home = async (req:Request, res:Response) =>{
          return res.status(200).json({productsAll});
 
     }catch(err){
-        return res.status(404).json(err);
+        return res.status(404).json({Erro:err});
     }
   
 };
