@@ -3,6 +3,7 @@ import {upload} from '../libs/multer';
 import * as controllerHome from '../Controllers/controllerHome';
 import * as controllerGet from '../Controllers/controllerGetProduct'
 import * as controllerCreateProduct from '../Controllers/controllerCreateProducts';
+import * as controllerDelete from '../Controllers/controllerDelete';
 
 const router = Router();
 
@@ -10,7 +11,9 @@ router.post('/createproducts', upload.fields([{ name: 'oldPrice' }, {name:'categ
 
 router.get('/teste', controllerHome.teste);
 router.get('/',controllerHome.home);
-router.get('/getproductsingle/:id',controllerGet.getProductId )
+router.get('/getproductsingle/:id',controllerGet.getProductId );
+
+router.delete('/deleteproducts/:id',controllerDelete.deleteProducts);
 
 
 
