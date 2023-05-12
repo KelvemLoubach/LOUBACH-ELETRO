@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import * as services from '../services/servicesCreateProducts';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
-import sharp from 'sharp';
 import dotenv from 'dotenv';
 
 dotenv.config();
