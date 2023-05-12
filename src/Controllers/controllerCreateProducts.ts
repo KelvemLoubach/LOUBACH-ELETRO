@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import * as services from '../services/servicesCreateProducts';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import sharp from 'sharp';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -33,7 +34,7 @@ export const createProducts = async (req: Request, res: Response) => {
                 const bucket = {
                     Bucket: 'photosnodeapi',
                     Key: namePhoto,
-                    Body: photos.image[i].buffer,
+                    Body: await sharp(photos.image[i].buffer).resize(385,595),
                     ACL: 'public-read',
                     ContentType: photos.image[i].originalname
                 }
