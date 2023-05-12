@@ -34,7 +34,7 @@ export const createProducts = async (req: Request, res: Response) => {
                 const bucket = {
                     Bucket: 'photosnodeapi',
                     Key: namePhoto,
-                    Body: await sharp(photos.image[i].buffer).resize(385,595),
+                    Body: photos.image[i].buffer,
                     ACL: 'public-read',
                     ContentType: photos.image[i].originalname
                 }
