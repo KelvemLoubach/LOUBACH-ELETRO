@@ -3,15 +3,41 @@ import { Request, Response } from "express";
 
 let prisma = new PrismaClient();
 
-export const deleteProducts = async (req:Request, res:Response) => {
+export const deleteProducts = async (req: Request, res: Response) => {
 
-    const {id} = req.params;
+    try {
 
-    const Id = parseInt(id);
+        const { id } = req.params;
 
-    const product = await prisma.products.delete({
-        where: {id:Id}
-    });
+        if (id) {
 
-    return res.status(200).json({Deletado:product})
+            const Id = parseInt(id);
+
+            const existingProduct = await prisma.products.findUnique({
+
+                where: { id: Id }
+            });
+
+            if(existingProduct){
+
+                const product = await prisma.products.delete({
+                    where: { id: Id }
+                });
+
+                return res.status(200).json({ Deletado: product });
+
+            }else{
+
+                return res.status(400).json({Error: 'Product not found!'});
+            }
+
+        } else {
+
+            return res.status(404).json({ Erro: 'Id not found!' })
+        }
+
+    } catch (err) {
+
+        return res.status(400).json(err)
+    }
 }
