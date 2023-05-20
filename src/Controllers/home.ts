@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as services from '../services/servicesAllProducts'
+import * as services from '../services/allProducts'
 
 export const home = async (req:Request, res:Response) =>{
     
@@ -14,8 +14,7 @@ export const home = async (req:Request, res:Response) =>{
 
     }catch(err){
         return res.status(404).json({Erro:err});
-    }
-  
+    } 
 };
 
 export const teste = (req:Request, res: Response) => {

@@ -5,13 +5,13 @@ interface createProductsInterface  {
     inStock?: string | null
     name: string;
     category: string
-    guarantee?: string | null
+    guarantee?: string | null 
     image1?: string | null
     image2?: string | null
     image3?: string | null
     image4?: string | null
     oldPrice?: string | null
-};
+}
 
 export default createProductsInterface;
 

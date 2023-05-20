@@ -10,18 +10,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  idUser   Int @id @default(autoincrement())
+  email    String @unique
+  password String 
+  products Products[]
+}
 
 model Products {
-  id Int @id @default(autoincrement())
+  id          Int @id @default(autoincrement())
   description String
-  price Int
-  category String
-  inStock String? 
-  name String
-  guarantee String?
-  image1 String?
-  image2 String?
-  image3 String?
-  image4 String?
-  oldPrice String?
+  price       Int
+  category    String
+  inStock     String? 
+  name        String
+  guarantee   String?
+  image1      String?
+  image2      String?
+  image3      String?
+  image4      String?
+  oldPrice    String?
+  userId      Int
+  user        User @relation(fields: [userId], references: [idUser])
 }

@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 
-let prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
 export const deleteProducts = async (req: Request, res: Response) => {
 
