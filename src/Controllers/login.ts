@@ -3,8 +3,6 @@ import { createUser } from '../interfacer&types/typesSignup'
 import { jwtCreated } from '../middlewares/jwt';
 import { loginServices } from '../services/login';
 
-
-
 export const login = async (req: Request, res: Response) => {
 
     try {
@@ -19,8 +17,8 @@ export const login = async (req: Request, res: Response) => {
         if (loginUser !== undefined && loginUser !== false) {
 
             const jwt = jwtCreated(loginUser.idUser.toString());
-
-            return res.status(200).json({ OK: `Correct login, jwt: ${jwt}` })
+  
+             return res.cookie("access_token", jwt, { httpOnly: true, secure:false }).status(200).json(jwt)
 
         } else if (loginUser !== false) {
 
@@ -30,9 +28,9 @@ export const login = async (req: Request, res: Response) => {
 
             return res.status(401).json({ Error: 'Incorrect password' })
         }
-
-    } catch (err) {
-        res.status(400).json({Erro_login:err})
+       
+    } catch (error:any) {
+       return res.status(400).json({Erro_login:error.message})
     }
 
 }

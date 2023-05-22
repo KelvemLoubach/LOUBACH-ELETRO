@@ -3,7 +3,6 @@ import { createUser } from '../interfacer&types/typesSignup';
 
 const prisma = new PrismaClient();
 
-
 export const FindOrCreate = async (data:createUser) => {
 
     const user = await prisma.user.findUnique({

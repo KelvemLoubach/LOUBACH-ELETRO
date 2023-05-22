@@ -43,11 +43,11 @@ export const signup = async (req: Request, res: Response) => {
 
       const token = jwtCreated(id)
 
-      return res.status(201).json(token )
+      return res.status(201).json({token:`${token}`} )
     
-  } catch (err) {
+  } catch (err:any) {
 
-    return res.status(404).json({ Erro_singup: err })
+    return res.status(404).json({ Erro_singup: err.message })
   }
 
 };

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import * as services from '../services/createProducts';
 import { configs3 } from "../middlewares/s3Client";
+import {jwtCreated} from '../middlewares/jwt'
 import createProductsInterface from '../interfacer&types/interfaces'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import dotenv from 'dotenv';
