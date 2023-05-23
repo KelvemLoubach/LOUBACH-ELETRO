@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import dotenv from 'dotenv'
-import { verify } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 
 dotenv.config();
 
@@ -14,7 +14,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
 
         const token = req.cookies.access_token;
             
-            const decoded = verify(token, process.env.SECRET_KEY as string)
+           const decoded = jwt.verify(token, process.env.SECRET_KEY as string)
              
              decoded !== 'string' ? next() : '';
 
@@ -22,4 +22,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
         res.status(400).json({ Auth: err })
     }
 
-}
+};
+
+
+

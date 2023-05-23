@@ -1,10 +1,14 @@
 import { Request, Response } from "express";
+import jwt from 'jsonwebtoken'
 import * as services from '../services/allProducts'
 
 export const home = async (req:Request, res:Response) =>{
     
     try{
-        const productsAll = await services.getProducts.getAllProducts();
+        const idUser = jwt.decode(req.cookies.access_token) as string;
+        const id = parseInt(idUser)
+
+        const productsAll = await services.getProducts.getAllProducts(id);
          
         if(!productsAll){
             return res.status(200).json({Erro: `Nenhum produto para ser retornado`});

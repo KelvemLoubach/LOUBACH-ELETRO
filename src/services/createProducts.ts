@@ -7,10 +7,10 @@ export const createProductService = {
 
     createProduct: async (data:createProductsInterface) => {
 
-    //     const product = await prisma.products.create({
-    //         data
-    //     })
+        const product = await prisma.products.create({
+            data
+        })
 
-    //    return product;
+       return product;
     }
 }

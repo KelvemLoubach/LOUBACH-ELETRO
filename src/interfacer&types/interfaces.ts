@@ -1,5 +1,6 @@
 
 interface createProductsInterface  {
+    userId: number;
     description: string;
     price: number;
     inStock?: string | null

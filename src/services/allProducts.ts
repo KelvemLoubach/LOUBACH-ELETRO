@@ -6,8 +6,10 @@ const prisma = new PrismaClient()
 
 export const getProducts =  {
 
-     getAllProducts: async ()=> {
-         return await prisma.products.findMany()
+     getAllProducts: async (id:number)=> {
+         return await prisma.products.findMany({
+            where:{userId:id}
+         })
     },
 
     getSingleProduc: async (id:number) => {
