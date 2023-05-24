@@ -13,6 +13,7 @@ router.get('/teste',auth, controllers.teste);
 router.get('/',controllers.home);
 router.get('/getproductsingle/:id',auth, controllers.getProductId );
 
+router.put('/update/:id')
 router.delete('/deleteproducts/:id',auth, controllers.deleteProducts);
 
 export default router;

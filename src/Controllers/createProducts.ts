@@ -1,16 +1,19 @@
 import { Request, Response } from "express";
 import * as services from '../services/createProducts';
 import { configs3 } from "../middlewares/s3Client";
-import jwt from 'jsonwebtoken'
 import createProductsInterface from '../interfacer&types/interfaces'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
+interface myRequest extends Request {
+    userId?: string
+};
+
 const clientS3 = new S3Client(configs3);
 
-export const createProducts = async (req: Request, res: Response) => {
+export const createProducts = async (req: myRequest, res: Response) => {
 
     try {
 
@@ -50,14 +53,11 @@ export const createProducts = async (req: Request, res: Response) => {
         const image3 = image[2];
         const image4 = image[3];
 
-        const id = jwt.decode(req.cookies.access_token) as string;
-
-    
-        console.log(id+'<-----1')
+        const id = req.userId as string;
 
         await services.createProductService.createProduct({
 
-            userId:parseInt(id),
+            userId: parseInt(id),
             oldPrice,
             price: priceInt,
             inStock,
