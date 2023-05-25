@@ -9,7 +9,7 @@ dotenv.config();
 
 interface myRequest extends Request {
     userId?: string
-};
+}
 
 const clientS3 = new S3Client(configs3);
 

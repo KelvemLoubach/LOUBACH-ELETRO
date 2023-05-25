@@ -7,10 +7,13 @@ type data = {
     idProducts:number
 }
 
-export const updateProductsServices = async (ids:data) =>{
+export const updateProductsServices = async (dataId:data) =>{
 
-    return await prisma.products.findUnique({
-        where:{}
+    return await prisma.products.findFirst({
+        where:{
+            userId:dataId.idUserLogin,
+            id:dataId.idProducts
+        }
     })
 
 }
