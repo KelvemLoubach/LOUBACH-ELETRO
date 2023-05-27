@@ -1,25 +1,17 @@
 
 interface createProductsInterface  {
-    userId: number;
+    userId?: number;
     description: string;
-    price: number;
-    inStock?: string | null
+    price?: number ;
+    inStock?: string;
     name: string;
-    category: string
-    guarantee?: string | null 
-    image1?: string | null
-    image2?: string | null
-    image3?: string | null
-    image4?: string | null
-    oldPrice?: string | null
+    category: string;
+    guarantee?: string ;
+    image1?: string ;
+    image2?: string ;
+    image3?: string ;
+    image4?: string ;
+    oldPrice?: string; 
 }
 
 export default createProductsInterface;
-
-// description String
-// price Int
-// inStock String? 
-// name String
-// guarantee String?
-// image String?
-// oldPrice Int?

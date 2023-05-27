@@ -5,15 +5,15 @@ const prisma = new PrismaClient();
 
 export const loginServices = async (email:string, password:string) =>{
 
-    const registeredUser= await prisma.user.findUnique({
+    const userAlreadyRegistered= await prisma.user.findUnique({
         where:{email}
     })
 
-    if(registeredUser){
+    if(userAlreadyRegistered){
 
-        const match = await compare(password, registeredUser.password);
-        console.log(match)
-        return match ? registeredUser : false;          
+        const match = await compare(password, userAlreadyRegistered.password);
+      
+        return match ? userAlreadyRegistered : false;          
     }
 
 }

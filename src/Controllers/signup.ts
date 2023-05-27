@@ -45,9 +45,9 @@ export const signup = async (req: Request, res: Response) => {
 
       return res.status(201).json({token:`${token}`} )
     
-  } catch (err:any) {
+  } catch (error:any) {
 
-    return res.status(404).json({ Erro_singup: err.message })
+    return res.status(404).json({ Erro_singup: error.message })
   }
 
 };

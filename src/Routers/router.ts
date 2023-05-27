@@ -10,7 +10,7 @@ router.post('/login', controllers.login)
 router.post('/signup', controllers.signup);
 
 router.get('/teste',auth, controllers.teste);
-router.get('/',controllers.home);
+router.get('/',auth, controllers.home);
 router.get('/getproductsingle/:id',auth, controllers.getProductId );
 
 router.put('/update/:id',auth, controllers.updateProduct);

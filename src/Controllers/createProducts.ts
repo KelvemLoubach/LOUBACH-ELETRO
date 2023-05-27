@@ -43,7 +43,6 @@ export const createProducts = async (req: myRequest, res: Response) => {
 
             image[i] = `${process.env.URL_S3}${namePhoto}`;
 
-            console.log(image[i])
             await clientS3.send(new PutObjectCommand(bucket));
 
         }
@@ -74,9 +73,9 @@ export const createProducts = async (req: myRequest, res: Response) => {
 
         return res.status(201).json({ Certo: 'Tudo correto por aqui!' });
 
-    } catch (err) {
+    } catch (error:any) {
 
-        return res.status(401).json({ CreateProducts_controller: err })
+        return res.status(401).json({ CreateProducts_controller: error.message })
     }
 
 }

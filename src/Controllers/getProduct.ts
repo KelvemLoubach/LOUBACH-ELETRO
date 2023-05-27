@@ -10,13 +10,14 @@ export const getProductId = async (req: Request, res: Response) => {
 
         const product = await services.getProducts.getSingleProduc(Id);
 
-        if(product){
-            return res.status(200).json(product)
+        if (!product) {
+            return res.status(200).json({ Erro: 'Não existe nenhum produto para ser exibido!' })
         }
-        return res.status(200).json({Erro:'Não existe nenhum produto para ser exibido!'})
-        
-    } catch (err) {
-        return res.status(404).json({Erro:err})
+
+        return res.status(200).json(product)
+
+    } catch (error: any) {
+        return res.status(404).json({ Erro: error.message })
     }
 
 }

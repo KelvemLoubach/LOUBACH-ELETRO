@@ -1,36 +1,44 @@
 import { Request, Response } from 'express';
-import {updateProductsServices } from '../services/update';
+import { myRequest} from '../interfacer&types/myRequest'
+import { updateProductsServices } from '../services/update';
+import createProductsInterface from '../interfacer&types/interfaces'
 
+export const updateProduct = async (req: myRequest, reqExpress:Request, res: Response) => {
 
-interface myRequest extends Request {
-    userId?: string
-}
+    try {
 
-export const updateProduct = async (req:myRequest, res:Response) =>{
+        const productId = reqExpress.params.id
+        const userId = req.userId as string;
 
-    try{
-
-        const idProducts = req.params.id
-        const iduser = req.userId as string;
-    
-        console.log(req.userId+'<----->')
-    
-        const id = {
-            idUserLogin: parseInt(iduser),
-            idProducts: parseInt(idProducts)
-        }
-    
-        const productsReturnUpdate = await updateProductsServices(id);
-
-        if(!productsReturnUpdate){
-            return res.status(400).json({Error: 'Product not found.'})
+        const userAndProductIdObject = {
+            idUserLogin: parseInt(userId),
+            idProducts: parseInt(productId)
         }
 
-        
-    
+        const { oldPrice, name, description, inStock, category, guarantee } = reqExpress.body as createProductsInterface;
 
-    }catch(error){
+        const updateProductsObject = {
 
+            oldPrice,
+            name,
+            description,
+            inStock,
+            category,
+            guarantee,
+
+        }
+
+        const productsReturnUpdate = await updateProductsServices(userAndProductIdObject, updateProductsObject)
+
+        if (!productsReturnUpdate) {
+            return res.status(200).json('Product not found!')
+        }
+
+        return res.status(201).json(productsReturnUpdate);
+
+    } catch (error: any) {
+
+        return res.status(404).json({ erro: error.message })
     }
 
-}
+} 

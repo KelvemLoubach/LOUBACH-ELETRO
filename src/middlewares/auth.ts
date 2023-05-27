@@ -28,8 +28,7 @@ export const auth = (req: myRequest, res: Response, next: NextFunction) => {
                 if (error) return res.status(401).json({ auth: false, message: 'Failed to authenticate token.' })
 
                 req.userId = decoded
-
-                console.log(req.userId)
+                
                 return next()
             })
 

@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-import { Request, Response } from "express";
 
-const prisma = new PrismaClient();
+import { Request, Response } from "express";
+import { searchProductAndDelete } from '../services/deleteProduct'
 
 export const deleteProducts = async (req: Request, res: Response) => {
 
@@ -9,35 +8,18 @@ export const deleteProducts = async (req: Request, res: Response) => {
 
         const { id } = req.params;
 
-        if (id) {
+        const productId = parseInt(id);
 
-            const Id = parseInt(id);
+        const returnSearchProductFunction = await searchProductAndDelete(productId)
 
-            const existingProduct = await prisma.products.findUnique({
-
-                where: { id: Id }
-            });
-
-            if(existingProduct){
-
-                const product = await prisma.products.delete({
-                    where: { id: Id }
-                });
-
-                return res.status(200).json({ Deletado: product });
-
-            }else{
-
-                return res.status(400).json({Error: 'Product not found!'});
-            }
-
-        } else {
-
-            return res.status(404).json({ Erro: 'Id not found!' })
+        if (!returnSearchProductFunction) {
+            return res.status(200).json('Product not found in database')
         }
 
-    } catch (err) {
+        return res.status(200).json({ ProductDelet: returnSearchProductFunction })
 
-        return res.status(400).json(err)
+    } catch (error: any) {
+
+        return res.status(400).json(error.message)
     }
 }
