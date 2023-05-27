@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 interface myRequest extends Request {
-    userId?: string
+    userId?: string 
 }
 
 const clientS3 = new S3Client(configs3);

@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import * as services from '../services/allProducts';
 
 export const getProductId = async (req: Request, res: Response) => {
-
+ 
     try {
 
         const { id } = req.params;
@@ -21,3 +21,5 @@ export const getProductId = async (req: Request, res: Response) => {
     }
 
 }
+
+//
