@@ -34,7 +34,7 @@ Este projeto é uma API RESTful que segue a arquitetura MVC. Ela oferece endpoin
 
 Os produtos cadastrados são armazenados com todos os campos necessários para permitir tratamentos e filtragens futuras. Além disso, o sistema permite o armazenamento de até quatro imagens diferentes para cada produto, proporcionando uma experiência visual rica para os usuários.
 
-O desenvolvimento deste projeto foi motivado por uma demanda real de um amigo, que buscava uma solução simples para exibir seus produtos. Ao adotar uma abordagem profissional, foi possível atender às necessidades específicas, garantindo a eficiência e eficácia.
+O desenvolvimento deste projeto foi motivado por uma demanda real de um amigo, que buscava uma solução simples para exibir seus produtos. 
 
 Esta Api está hospedada no Render, um serviço gratuito que oferece uma infraestrutura escalável para a execução da API. Essa escolha estratégica permite que o sistema suporte um alto volume de requisições de forma confiável, garantindo uma experiência de uso suave e contínua.
 
@@ -63,22 +63,28 @@ Geração do token JWT: Se o usuário for criado com sucesso, um token JWT (JSON
 
 Resposta da rota: A rota retorna uma resposta com o status 201 (Created) e o token JWT no corpo da resposta, caso o usuário seja criado com sucesso. Caso contrário, se o email já estiver cadastrado, a rota retorna uma resposta com o status 409 (Conflict) e uma mensagem de erro indicando que o usuário já existe.
 
-Essa rota é responsável por criar novos usuários na aplicação, seguindo as regras de validação e garantindo que não haja duplicação de emails. O uso do token JWT permite autenticar o usuário posteriormente em outras partes da aplicação.
+/createproducts<br>
+
+Esta rota recebe os dados necessários para o cadastro do produto, de acordo com o usuário logado. Em seguida, verifica se todos os campos estão preenchidos. Se estiverem preenchidos, os dados são enviados como parâmetros para a função 'createProduct', responsável por criar os produtos.
+
+/update<br>
+
+Esta rota recebe o ID do produto que será atualizado por meio do parâmetro 'id' presente em 'reqExpress.params'. Em seguida, extrai o ID do usuário logado da propriedade 'userId' de 'req' e o passa como parâmetro juntamente com dois objetos para a função 'updateProductsServices'. O primeiro objeto contém o ID do usuário e o ID do produto, enquanto o segundo objeto contém os campos a serem atualizados no produto. A função 'updateProductsServices' busca o produto correspondente ao ID fornecido no banco de dados. Se o produto não existir, a função retorna 'undefined'; caso contrário, o produto é atualizado.
 
 
+/deleteproducts<br>
 
-
-
+Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' presente em 'req.params'. Em seguida, o ID é passado como parâmetro para a função 'searchProductAndDelete' no controller. A função 'searchProductAndDelete' verifica separadamente se o produto existe no banco de dados. Se o produto existir, ele é deletado; caso contrário, a função retorna null.
 
 
 
 ##  Como executar
 
 - Clone o repositório
-- Instale as dependências com `yarn`
-- Inicie o servidor com `yarn dev`
+- Instale as dependências com `yarn install' ou 'npm install'.
+- Inicie o servidor com o comando `  start-dev`
 
-A aplicação pode ser acessada em [`localhost:3333`](http://localhost:3333).
+A aplicação pode ser acessada em [`localhost:3333`](http://localhost:1655).
 
 ## 📄 Licença
 
