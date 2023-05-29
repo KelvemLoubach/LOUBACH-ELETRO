@@ -77,8 +77,8 @@ Esta rota recebe o ID do produto que será atualizado por meio do parâmetro 'id
 Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' presente em 'req.params'. Em seguida, o ID é passado como parâmetro para a função 'searchProductAndDelete' no controller. A função 'searchProductAndDelete' verifica separadamente se o produto existe no banco de dados. Se o produto existir, ele é deletado; caso contrário, a função retorna null.
 
 
+## 🚀 Como executar
 
-##🚀  Como executar
 
 - Clone o repositório
 - Instale as dependências com `yarn install' ou 'npm install'.
