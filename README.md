@@ -106,6 +106,13 @@ Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' 
 
 - npm run start-dev
 - Isso irá iniciar o servidor utilizando o TypeScript (tsx) para transpilar e executar o código em tempo real.
+- 
+- npx prisma generate
+- Esse comando irá gerar os modelos, os métodos CRUD e outras classes necessárias para interagir com o banco de dados.
+
+- npx prisma migrate dev
+- Isso garantirá que o banco de dados esteja sincronizado com as alterações definidas no arquivo prisma/schema.prisma.
+
 
 - Agora você pode acessar a aplicação em http://localhost:1655 ou na porta especificada no arquivo .env, dependendo da configuração do projeto.
 
