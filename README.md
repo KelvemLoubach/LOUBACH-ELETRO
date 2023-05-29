@@ -28,7 +28,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Node.Js](https://nodejs.org/en)
 
 
-##  Projeto
+## 💻 Projeto
 
 Este projeto é uma API RESTful que segue a arquitetura MVC. Ela oferece endpoints para o cadastro de usuários e produtos, com uma estrutura flexível que permite que cada usuário possua uma quantidade ilimitada de produtos, enquanto cada produto é exclusivo de um único usuário.
 
