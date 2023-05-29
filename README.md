@@ -34,7 +34,7 @@ Este projeto é uma API RESTful que segue a arquitetura MVC. Ela oferece endpoin
 
 Os produtos cadastrados são armazenados com todos os campos necessários para permitir tratamentos e filtragens futuras. Além disso, o sistema permite o armazenamento de até quatro imagens diferentes para cada produto, proporcionando uma experiência visual rica para os usuários.
 
-O desenvolvimento deste projeto foi motivado por uma demanda real de um amigo, que buscava uma solução simples para exibir seus produtos. 
+O desenvolvimento deste projeto foi motivado por uma demanda real de um amigo, que buscava uma solução simples para cadastrar e ter um controle dos produtos vedidos em sua loja. 
 
 Esta Api está hospedada no Render, um serviço gratuito que oferece uma infraestrutura escalável para a execução da API. Essa escolha estratégica permite que o sistema suporte um alto volume de requisições de forma confiável, garantindo uma experiência de uso suave e contínua.
 
