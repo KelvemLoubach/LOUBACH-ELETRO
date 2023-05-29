@@ -3,8 +3,8 @@
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-diagrama">Diagrama</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Descrição-das-rotas">Descrição das rotas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-licença">Licença</a>
 </p>
 
@@ -15,7 +15,7 @@
   <img alt="Store" src="https://github.com/KelvemLoubach/store/assets/120065894/57f48a9e-64b1-4b25-a268-1714ad6bc226" width="100%">
 </p>
 
-## ✨ Tecnologias
+##  Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
@@ -28,7 +28,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Node.Js](https://nodejs.org/en)
 
 
-## 💻 Projeto
+##  Projeto
 
 Este projeto é uma API RESTful que segue a arquitetura MVC. Ela oferece endpoints para o cadastro de usuários e produtos, com uma estrutura flexível que permite que cada usuário possua uma quantidade ilimitada de produtos, enquanto cada produto é exclusivo de um único usuário.
 
@@ -38,7 +38,7 @@ O desenvolvimento deste projeto foi motivado por uma demanda real de um amigo, q
 
 Esta Api está hospedada no Render, um serviço gratuito que oferece uma infraestrutura escalável para a execução da API. Essa escolha estratégica permite que o sistema suporte um alto volume de requisições de forma confiável, garantindo uma experiência de uso suave e contínua.
 
-## 🔶 Descrição das rotas
+##  Descrição das rotas
 
 /login: <br>
 
@@ -86,7 +86,7 @@ Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' 
 
 A aplicação pode ser acessada em [`localhost:3333`](http://localhost:1655).
 
-## 📄 Licença
+##  Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
