@@ -86,7 +86,7 @@ Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' 
 
 A aplicação pode ser acessada em [`localhost:3333`](http://localhost:1655).
 
-## 🔶 Licença
+## 📄 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
