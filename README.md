@@ -38,7 +38,7 @@ O desenvolvimento deste projeto foi motivado por uma demanda real de um amigo, q
 
 Esta Api está hospedada no Render, um serviço gratuito que oferece uma infraestrutura escalável para a execução da API. Essa escolha estratégica permite que o sistema suporte um alto volume de requisições de forma confiável, garantindo uma experiência de uso suave e contínua.
 
-##  Descrição das rotas
+## 🔶 Descrição das rotas
 
 /login: <br>
 
@@ -78,7 +78,7 @@ Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' 
 
 
 
-##  Como executar
+## 🔶  Como executar
 
 - Clone o repositório
 - Instale as dependências com `yarn install' ou 'npm install'.
@@ -86,7 +86,7 @@ Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' 
 
 A aplicação pode ser acessada em [`localhost:3333`](http://localhost:1655).
 
-##  Licença
+## 🔶 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
