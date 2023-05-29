@@ -80,11 +80,34 @@ Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' 
 ## 🚀 Como executar
 
 
-- Clone o repositório
-- Instale as dependências com `yarn install' ou 'npm install'.
-- Inicie o servidor com o comando `  start-dev`
+- Certifique-se de ter o Node.js instalado em seu sistema. Você pode fazer o download e instalá-lo a partir do site oficial do Node.js: https://nodejs.org/
 
-A aplicação pode ser acessada em [`localhost:3333`](http://localhost:1655).
+- Abra um terminal ou prompt de comando e navegue até o diretório onde deseja clonar o repositório.
+
+- Execute o seguinte comando para clonar o repositório para o seu sistema:
+
+- git clone <URL_DO_REPOSITÓRIO>
+- Substitua <URL_DO_REPOSITÓRIO> pela URL do repositório que deseja clonar. Por exemplo:
+
+
+- git clone https://github.com/seu-usuario/seu-repositorio.git
+- Após o clone do repositório, navegue até o diretório do projeto:
+
+
+- cd nome-do-repositorio
+- Execute o seguinte comando para instalar as dependências do projeto:
+
+
+- npm install
+- Crie um arquivo .env na raiz do projeto e adicione as variáveis de ambiente necessárias, como as credenciais para o banco de dados e o AWS S3. Consulte a documentação do projeto ou o arquivo .env.example fornecido para obter mais informações sobre as variáveis de ambiente necessárias.
+
+ - Após configurar as variáveis de ambiente, você pode iniciar o servidor de desenvolvimento executando o seguinte comando:
+
+
+- npm run start-dev
+- Isso irá iniciar o servidor utilizando o TypeScript (tsx) para transpilar e executar o código em tempo real.
+
+- Agora você pode acessar a aplicação em http://localhost:1655 ou na porta especificada no arquivo .env, dependendo da configuração do projeto.
 
 ## 📄 Licença
 
