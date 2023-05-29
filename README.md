@@ -103,10 +103,9 @@ Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' 
 
  - Após configurar as variáveis de ambiente, você pode iniciar o servidor de desenvolvimento executando o seguinte comando:
 
-
 - npm run start-dev
 - Isso irá iniciar o servidor utilizando o TypeScript (tsx) para transpilar e executar o código em tempo real.
-- 
+
 - npx prisma generate
 - Esse comando irá gerar os modelos, os métodos CRUD e outras classes necessárias para interagir com o banco de dados.
 
