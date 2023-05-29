@@ -15,7 +15,7 @@
   <img alt="Store" src="https://github.com/KelvemLoubach/store/assets/120065894/57f48a9e-64b1-4b25-a268-1714ad6bc226" width="100%">
 </p>
 
-##  Tecnologias
+## ✨ Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
