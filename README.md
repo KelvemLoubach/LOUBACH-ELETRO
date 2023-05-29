@@ -78,7 +78,7 @@ Esta rota recebe o ID do produto que será deletado através do parâmetro 'id' 
 
 
 
-## 🚀  Como executar
+##🚀  Como executar
 
 - Clone o repositório
 - Instale as dependências com `yarn install' ou 'npm install'.
