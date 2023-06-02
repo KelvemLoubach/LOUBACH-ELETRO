@@ -30,7 +30,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Este projeto é uma API RESTful que segue a arquitetura MVC. Ela oferece endpoints para o cadastro de usuários e produtos, com uma estrutura flexível que permite que cada usuário possua uma quantidade ilimitada de produtos, enquanto cada produto é exclusivo de um único usuário.
+Este projeto é uma API RESTful. O projeto segue o padrão MVC. Ela oferece endpoints para o cadastro de usuários e produtos, com uma estrutura flexível que permite que cada usuário possua uma quantidade ilimitada de produtos, enquanto cada produto é exclusivo de um único usuário.
 
 Os produtos cadastrados são armazenados com todos os campos necessários para permitir tratamentos e filtragens futuras. Além disso, o sistema permite o armazenamento de até quatro imagens diferentes para cada produto, proporcionando uma experiência visual rica para os usuários.
 
